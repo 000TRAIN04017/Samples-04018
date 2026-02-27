@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<hook>
+	<type>hookExec</type>
+	<alias>BaseRights</alias>
+	<data>
+		<record>
+			<win>startmenu</win>
+			<query>#startUsersBtn</query>
+			<level>2</level>
+			<action>disable</action>
+			<comment/>
+		</record>
+		<record>
+			<win>startmenu</win>
+			<query>#startUsersBtn</query>
+			<level>2</level>
+			<action>disable</action>
+			<comment/>
+		</record>
+		<record>
+			<win>sell.pos.btn.manager</win>
+			<query>button</query>
+			<level>4</level>
+			<action>disable</action>
+			<comment/>
+		</record>
+		<record>
+			<win>sell.man.btn.manager</win>
+			<query>button</query>
+			<level>4</level>
+			<action>disable</action>
+			<comment/>
+		</record>
+		<record>
+			<win>sell.pos.desktop</win>
+			<query>#TrsInfoBtn</query>
+			<level>4</level>
+			<action>disable</action>
+			<comment>Transaction #: button</comment>
+		</record>
+		<record>
+			<win>sell.pos.btn.start</win>
+			<query>button[text="Customer"]</query>
+			<level>5</level>
+			<action>disable</action>
+			<comment>Customer</comment>
+		</record>
+		<record>
+			<win>sell.pos.menu.flip.result</win>
+			<query>dataviewpopupfield[fieldLabel="Family code"]</query>
+			<level>7</level>
+			<action>hide</action>
+			<comment>Hide Family in Flip Chart</comment>
+		</record>
+		<record>
+			<win>sell.pos.menu.flip.result</win>
+			<query>dataviewpopupfield[name="F18"]</query>
+			<level>7</level>
+			<action>hide</action>
+			<comment>Hide Report Code in Flip Chart</comment>
+		</record>
+		<record>
+			<win>sell.pos.trs.total</win>
+			<query>displayfield[fieldLabel="Foodstamp"]</query>
+			<level>7</level>
+			<action>hide</action>
+			<comment/>
+		</record>
+		<record>
+			<win>sell.pos.entry.liveweight</win>
+			<query>self</query>
+			<level>7</level>
+			<action>hide</action>
+			<comment/>
+		</record>
+	</data>
+</hook>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:sms="/office/sms-xsd-form" attributeFormDefault="unqualified" elementFormDefault="qualified">
+	<xs:element name="wizard">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="form" sms:label="Entry Form" sms:width="600" sms:height="400">
+					<xs:sequence sms:type="panelContainer" sms:label="Details to add to the transaction">
+						<xs:element type="xs:string" sms:label="Choose an option:" name="ENTRYOPTION" default="" >
+							<xs:simpleType>
+								<xs:restriction>
+									<xs:enumeration value="Option A" sms:caption="A" />
+									<xs:enumeration value="Option B" sms:caption="B" />
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element type="xs:string" name="ENTRYTEXT"  default=" " sms:label="Comment:"/>
+						<xs:element type="collapsiblePanel" name="dateContainer" sms:label="Date and TimeStamp" sms:collapsed="true" >
+							<xs:element type="xs:date" name="ENTRYDATE"  default="@DSDD" sms:label="Specify a date"></xs:element>
+							<xs:element type="xs:string" name="ENTRYTIME"  default="@FMT(T4D,@TIME)" sms:label="Time Stamp"/>
+							<xs:element type="xs:boolean" name="INCLUDEDATETIME" default="1" sms:label="Include the date and time?"></xs:element> 
+						</xs:element>
+					</xs:sequence>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

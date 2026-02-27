@@ -1,0 +1,12 @@
+/* CUSTOMIZED WIZARD */
+@wizInit;
+@wizXSD(eSuite_CLT_O1R_LIST_byName.xsd);
+@wizDisplay;
+
+/* BUILDING THE REPORT */
+@wizRpl(REPORT_IFRAME=eSuite_base_exec_sqr.sqi);
+@wizRpl(REPORT=CLT_O1R_LIST);
+
+/* EXECUTE THE REPORT */
+@exec(SQR=@wizGet(REPORT));
+

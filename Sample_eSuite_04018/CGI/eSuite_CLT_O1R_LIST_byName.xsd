@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:sms="/office/sms-xsd-form" attributeFormDefault="unqualified" elementFormDefault="qualified">
+	<xs:element name="wizard">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="form" sms:label="Preferred Customers" sms:width="600" sms:height="250">
+					<xs:sequence sms:type="panelContainer" sms:label="Shopper Level range" >
+						@dbView(Q1,SELECT F1152, F1174 FROM CLF_TAB) 
+						<xs:element type="xs:string" sms:label="From: " name="D1152" default="0" >
+						<xs:simpleType>-
+							<xs:restriction>
+								<xs:enumeration value="@dbRow(Q1,F1152,#)@wizRpl(F1152REC=@dbRow(Q1,F1152,#))" sms:caption="@dbRow(Q1,F1152,#) | @dbRow(Q1,F1174)@dbRow(Q1,NEXT)"  />
+								@IF(@dbRow(Q1,F1152,#)<>@wizGet(F1152REC))
+								<xs:enumeration value="@dbRow(Q1,F1152,#)@wizRpl(F1152REC=@dbRow(Q1,F1152,#))" sms:caption="@dbRow(Q1,F1152,#) | @dbRow(Q1,F1174)@dbRow(Q1,NEXT)"  />
+								@ENDIF
+								@IF(@dbRow(Q1,F1152,#)<>@wizGet(F1152REC))
+								<xs:enumeration value="@dbRow(Q1,F1152,#)@wizRpl(F1152REC=@dbRow(Q1,F1152,#))" sms:caption="@dbRow(Q1,F1152,#) | @dbRow(Q1,F1174)@dbRow(Q1,NEXT)"  />
+								@ENDIF
+								@IF(@dbRow(Q1,F1152,#)<>@wizGet(F1152REC))
+								<xs:enumeration value="@dbRow(Q1,F1152,#)@wizRpl(F1152REC=@dbRow(Q1,F1152,#))" sms:caption="@dbRow(Q1,F1152,#) | @dbRow(Q1,F1174)@dbRow(Q1,NEXT)"  />
+								@ENDIF
+								@IF(@dbRow(Q1,F1152,#)<>@wizGet(F1152REC))
+								<xs:enumeration value="@dbRow(Q1,F1152,#)@wizRpl(F1152REC=@dbRow(Q1,F1152,#))" sms:caption="@dbRow(Q1,F1152,#) | @dbRow(Q1,F1174)@dbRow(Q1,NEXT)"  />
+								@ENDIF
+								@IF(@dbRow(Q1,F1152,#)<>@wizGet(F1152REC))
+								<xs:enumeration value="@dbRow(Q1,F1152,#)@wizRpl(F1152REC=@dbRow(Q1,F1152,#))" sms:caption="@dbRow(Q1,F1152,#) | @dbRow(Q1,F1174)@dbRow(Q1,NEXT)"  />
+								@ENDIF
+								@IF(@dbRow(Q1,F1152,#)<>@wizGet(F1152REC))
+								<xs:enumeration value="@dbRow(Q1,F1152,#)@wizRpl(F1152REC=@dbRow(Q1,F1152,#))" sms:caption="@dbRow(Q1,F1152,#) | @dbRow(Q1,F1174)@dbRow(Q1,NEXT)"  />
+								@ENDIF
+								@IF(@dbRow(Q1,F1152,#)<>@wizGet(F1152REC))
+								<xs:enumeration value="@dbRow(Q1,F1152,#)@wizRpl(F1152REC=@dbRow(Q1,F1152,#))" sms:caption="@dbRow(Q1,F1152,#) | @dbRow(Q1,F1174)@dbRow(Q1,NEXT)"  />
+								@ENDIF
+								@IF(@dbRow(Q1,F1152,#)<>@wizGet(F1152REC))
+								<xs:enumeration value="@dbRow(Q1,F1152,#)@wizRpl(F1152REC=@dbRow(Q1,F1152,#))" sms:caption="@dbRow(Q1,F1152,#) | @dbRow(Q1,F1174)@dbRow(Q1,NEXT)"  />
+								@ENDIF
+								@IF(@dbRow(Q1,F1152,#)<>@wizGet(F1152REC))
+								<xs:enumeration value="@dbRow(Q1,F1152,#)@wizRpl(F1152REC=@dbRow(Q1,F1152,#))" sms:caption="@dbRow(Q1,F1152,#) | @dbRow(Q1,F1174)@dbRow(Q1,NEXT)"  />
+								@ENDIF
+								@IF(@dbRow(Q1,F1152,#)<>@wizGet(F1152REC))
+								<xs:enumeration value="@dbRow(Q1,F1152,#)@wizRpl(F1152REC=@dbRow(Q1,F1152,#))" sms:caption="@dbRow(Q1,F1152,#) | @dbRow(Q1,F1174)@dbRow(Q1,NEXT)"  />
+								@ENDIF
+								@IF(@dbRow(Q1,F1152,#)<>@wizGet(F1152REC))
+								<xs:enumeration value="@dbRow(Q1,F1152,#)@wizRpl(F1152REC=@dbRow(Q1,F1152,#))" sms:caption="@dbRow(Q1,F1152,#) | @dbRow(Q1,F1174)@dbRow(Q1,NEXT)"  />
+								@ENDIF
+								@IF(@dbRow(Q1,F1152,#)<>@wizGet(F1152REC))
+								<xs:enumeration value="@dbRow(Q1,F1152,#)@wizRpl(F1152REC=@dbRow(Q1,F1152,#))" sms:caption="@dbRow(Q1,F1152,#) | @dbRow(Q1,F1174)@dbRow(Q1,NEXT)"  />
+								@ENDIF
+							</xs:restriction>
+						</xs:simpleType>
+						</xs:element>
+						@dbView(Q1,SELECT F1152, F1174 FROM CLF_TAB)
+						@wizClr(F1152REC) 
+						<xs:element type="xs:string" sms:label="To: " name="F1152" default="99999999" >
+						<xs:simpleType>
+							<xs:restriction>
+								<xs:enumeration value="@dbRow(Q1,F1152,#)@wizRpl(F1152REC=@dbRow(Q1,F1152,#))" sms:caption="@dbRow(Q1,F1152,#) | @dbRow(Q1,F1174)@dbRow(Q1,NEXT)"  />
+								@IF(@dbRow(Q1,F1152,#)<>@wizGet(F1152REC))
+								<xs:enumeration value="@dbRow(Q1,F1152,#)@wizRpl(F1152REC=@dbRow(Q1,F1152,#))" sms:caption="@dbRow(Q1,F1152,#) | @dbRow(Q1,F1174)@dbRow(Q1,NEXT)"  />
+								@ENDIF
+								@IF(@dbRow(Q1,F1152,#)<>@wizGet(F1152REC))
+								<xs:enumeration value="@dbRow(Q1,F1152,#)@wizRpl(F1152REC=@dbRow(Q1,F1152,#))" sms:caption="@dbRow(Q1,F1152,#) | @dbRow(Q1,F1174)@dbRow(Q1,NEXT)"  />
+								@ENDIF
+								@IF(@dbRow(Q1,F1152,#)<>@wizGet(F1152REC))
+								<xs:enumeration value="@dbRow(Q1,F1152,#)@wizRpl(F1152REC=@dbRow(Q1,F1152,#))" sms:caption="@dbRow(Q1,F1152,#) | @dbRow(Q1,F1174)@dbRow(Q1,NEXT)"  />
+								@ENDIF
+								@IF(@dbRow(Q1,F1152,#)<>@wizGet(F1152REC))
+								<xs:enumeration value="@dbRow(Q1,F1152,#)@wizRpl(F1152REC=@dbRow(Q1,F1152,#))" sms:caption="@dbRow(Q1,F1152,#) | @dbRow(Q1,F1174)@dbRow(Q1,NEXT)"  />
+								@ENDIF
+								@IF(@dbRow(Q1,F1152,#)<>@wizGet(F1152REC))
+								<xs:enumeration value="@dbRow(Q1,F1152,#)@wizRpl(F1152REC=@dbRow(Q1,F1152,#))" sms:caption="@dbRow(Q1,F1152,#) | @dbRow(Q1,F1174)@dbRow(Q1,NEXT)"  />
+								@ENDIF
+								@IF(@dbRow(Q1,F1152,#)<>@wizGet(F1152REC))
+								<xs:enumeration value="@dbRow(Q1,F1152,#)@wizRpl(F1152REC=@dbRow(Q1,F1152,#))" sms:caption="@dbRow(Q1,F1152,#) | @dbRow(Q1,F1174)@dbRow(Q1,NEXT)"  />
+								@ENDIF
+								@IF(@dbRow(Q1,F1152,#)<>@wizGet(F1152REC))
+								<xs:enumeration value="@dbRow(Q1,F1152,#)@wizRpl(F1152REC=@dbRow(Q1,F1152,#))" sms:caption="@dbRow(Q1,F1152,#) | @dbRow(Q1,F1174)@dbRow(Q1,NEXT)"  />
+								@ENDIF
+								@IF(@dbRow(Q1,F1152,#)<>@wizGet(F1152REC))
+								<xs:enumeration value="@dbRow(Q1,F1152,#)@wizRpl(F1152REC=@dbRow(Q1,F1152,#))" sms:caption="@dbRow(Q1,F1152,#) | @dbRow(Q1,F1174)@dbRow(Q1,NEXT)"  />
+								@ENDIF
+								@IF(@dbRow(Q1,F1152,#)<>@wizGet(F1152REC))
+								<xs:enumeration value="@dbRow(Q1,F1152,#)@wizRpl(F1152REC=@dbRow(Q1,F1152,#))" sms:caption="@dbRow(Q1,F1152,#) | @dbRow(Q1,F1174)@dbRow(Q1,NEXT)"  />
+								@ENDIF
+								@IF(@dbRow(Q1,F1152,#)<>@wizGet(F1152REC))
+								<xs:enumeration value="@dbRow(Q1,F1152,#)@wizRpl(F1152REC=@dbRow(Q1,F1152,#))" sms:caption="@dbRow(Q1,F1152,#) | @dbRow(Q1,F1174)@dbRow(Q1,NEXT)"  />
+								@ENDIF
+								@IF(@dbRow(Q1,F1152,#)<>@wizGet(F1152REC))
+								<xs:enumeration value="@dbRow(Q1,F1152,#)@wizRpl(F1152REC=@dbRow(Q1,F1152,#))" sms:caption="@dbRow(Q1,F1152,#) | @dbRow(Q1,F1174)@dbRow(Q1,NEXT)"  />
+								@ENDIF
+								@IF(@dbRow(Q1,F1152,#)<>@wizGet(F1152REC))
+								<xs:enumeration value="@dbRow(Q1,F1152,#)@wizRpl(F1152REC=@dbRow(Q1,F1152,#))" sms:caption="@dbRow(Q1,F1152,#) | @dbRow(Q1,F1174)@dbRow(Q1,NEXT)"  />
+								@ENDIF
+							</xs:restriction>
+						</xs:simpleType>
+						</xs:element>
+					</xs:sequence>
+					@wizRpl(ORDER=CLT.F1150)
+					@wizRpl(D1154=0)
+					@wizRpl(F1154=ZZZ)
+					@wizRpl(TITLE=Client List by Name)
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

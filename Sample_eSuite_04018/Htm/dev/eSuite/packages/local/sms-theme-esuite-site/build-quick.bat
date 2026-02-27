@@ -1,0 +1,2 @@
+sencha ant sass
+pause

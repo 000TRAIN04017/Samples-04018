@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<hook>
+	<type>hookExec</type>
+	<alias>BaseRights</alias>
+	<data>
+		<record>
+			<win>cust.clt.edit.master</win>
+			<query>textfield[label='Risk:']</query>
+			<level>4</level>
+			<action>hide</action>
+			<comment/>
+		</record>
+	</data>
+</hook>

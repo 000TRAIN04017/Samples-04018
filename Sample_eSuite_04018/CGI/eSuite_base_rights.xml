@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<hook>
+	<type>hookExec</type>
+	<alias>BaseRights</alias>
+	<data>
+		<record>
+			<win>.cost.</win>
+			<query>self</query>
+			<level>6</level>
+			<action>disable</action>
+			<comment>Hiding any view with the namespace .cost.</comment>
+		</record>
+		<record>
+			<win>item.itm.list.cost.result</win>
+			<query>self</query>
+			<level>6</level>
+			<action>disable</action>
+			<comment>Hiding the resultgrid when called from a view with the namepace .cost.</comment>
+		</record>
+		<record>
+			<win>item.itm.edit.obj.create</win>
+			<query>#CostCOntainer</query>
+			<level>6</level>
+			<action>hide</action>
+			<comment>All in one basic item window</comment>
+		</record>
+		<record>
+			<win>item.itm.list.</win>
+			<query>checkboxfield[boxLabel="Cost"]</query>
+			<level>6</level>
+			<action>hide</action>
+			<comment>Hiding the checkbox "Cost" in all wizard windows</comment>
+		</record>
+	</data>
+</hook>

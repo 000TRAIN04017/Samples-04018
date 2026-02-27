@@ -1,0 +1,51 @@
+{
+    "type": "Ext.app.Application",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "models": [
+            "TrsCltNew",
+            "TrsCltEdit"
+        ],
+        "name": "SMS",
+        "stores": [
+            "SiteCombos"
+        ],
+        "views": [
+            "StartDesktop",
+            "TrsDesktop",
+            "PosTndStart",
+            "PosSal",
+            "PosItmGeneralTile",
+            "CustomWindowPrivacy",
+            "CustomWindowTermsCond",
+            "PanelCltNew",
+            "StartPanel",
+            "GadgetItemView",
+            "TrsCltEdit",
+            "PanelCltNew2",
+            "PopupCltRepCard",
+            "PopupEntry",
+            "CustomDesktopHelp",
+            "CustomDesktopHowItWorks",
+            "Trs.Rct.Search",
+            "Trs.Rct.Result",
+            "TrsPanel",
+            "CustomWindowGetMorePoints",
+            "Pos.Catalog.CatResult",
+            "Custom.DesktopSectionFooter",
+            "Custom.DesktopSectionHeader"
+        ]
+    },
+    "configAlternates": {
+        "models": "typedarray",
+        "name": "string",
+        "stores": "typedarray",
+        "views": "typedarray"
+    },
+    "name": "Application",
+    "designerId": "application"
+}

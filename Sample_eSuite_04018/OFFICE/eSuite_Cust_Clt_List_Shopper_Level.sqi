@@ -1,0 +1,6 @@
+@wizInit;
+@wizXsd(Cgi\eSuite_Cust_Clt_List_Shopper_Level.xsd);
+@wizDisplay;
+
+@exec(CGI=eSuite_xml_hook.xml,ExtGridUsp=eSuite_cust_clt_list_general,ExtGridAlias=CommonGrid);
+

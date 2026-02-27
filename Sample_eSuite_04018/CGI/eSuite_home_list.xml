@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<root>
+	<hooks>
+		<hook>
+			<type>hookExec</type>
+			<alias>HomeList</alias>
+			<data>
+				<record>
+					<name>eSuite Dev</name>
+					<url>http://bos001901dev:4000/dev/eSuite/index.html#</url>
+					<specs/>
+					<login>1</login>
+				</record>
+				<record>
+					<name>eSuite Care</name>
+					<url>http://bos001901dev:4000/eSuite/care/index.html#</url>
+					<specs/>
+					<login>1</login>
+				</record>
+				<record>
+					<name>eSuite Batch</name>
+					<url>http://bos001901dev:4000/eSuite/batch/index.html#</url>
+					<specs/>
+					<login>1</login>
+				</record>
+				<record>
+					<name>eSuite Buy</name>
+					<url>http://bos001901dev:4000/eSuite/buy/index.html#</url>
+					<specs/>
+					<login>1</login>
+				</record>
+				<record>
+					<name>eSuite Sell</name>
+					<url>http://bos001901dev:4000/eSuite/sell/index.html#</url>
+					<specs/>
+					<login>1</login>
+				</record>
+				<record>
+					<name>eSuite Manage</name>
+					<url>http://bos001901dev:4000/eSuite/man/index.html#</url>
+					<specs/>
+					<login>1</login>
+				</record>
+				<record>
+					<name>eSuite System</name>
+					<url>http://bos001901dev:8000/eSuite/sys/index.html#</url>
+					<specs/>
+					<login>1</login>
+				</record>
+			</data>
+		</hook>
+	</hooks>
+</root>

@@ -1,0 +1,911 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<hook>
+	<type>hookExec</type>
+	<alias>CustomAddons</alias>
+	<data>
+
+    <!--REPLACE A LABEL ON POS MASTER FOR TAXES -->
+    <record>
+      <win>item.itm.edit.pos.master</win>
+      <renderTo>#F81</renderTo>
+      <action>replace</action>
+      <components><![CDATA[
+                {
+                            xtype: 'checkboxfield',
+                            x: 365,
+                            y: 60,
+                            itemId: 'F81',
+                            boxLabel: 'TAX1 DESCRIPTION',
+                            bind: {
+                                disabled: '{followSub.F81}',
+                                value: '{currentPos.POS_TAB-F81}'
+                            }
+                        }
+                ]]></components>
+    </record>
+
+		<!--ADDING A PDF REPORT TO THE FINANCIALS START MENU -->
+		<record>
+			<win>man.fin.start</win>
+			<renderTo>#customCont</renderTo>
+			<action>add</action>
+
+			<components><![CDATA[
+					{
+						xtype: 'container',
+						itemId: 'customLine',
+						items: [
+							{
+								xtype: 'label',
+								html: '<hr style="margin: 15px 8px 5px 8px"/>'
+							}
+						]
+					}
+				]]>
+			</components>
+			<comment></comment>
+		</record>	
+
+		<record>
+			<win>man.fin.start</win>
+			<renderTo>#customCont</renderTo>
+			<action>add</action>
+			<components><![CDATA[
+					{
+						xtype: 'button',
+						listeners: {
+							click: function(button) {
+								BaseCtrl.reportShow(button,'sqi=eSuite_base_exec_sqr&REPORT=FIN_O1R_NON_SEC_BAL_WEEK',true);
+							}
+						},
+						cls: '',
+						text: 'Store Balance Sheet 7 days'
+					}
+				]]>
+			</components>
+			<comment>Store Balance Sheet 7 days FIN_O1R_NON_SEC_BAL_WEEK.sqr</comment>
+		</record>	
+	
+		<!-- ADDING A CONTAINER BEFORE ADDING BUTTONS IN THE OPERATOR START MENU -->
+		<record>
+			<win>man.clk.start</win>
+			<renderTo>#col2Cont</renderTo>
+			<action>add</action>
+			<components><![CDATA[
+					{
+						xtype: 'container',
+						itemId: 'customCont2',
+						defaults: {
+							minWidth: 150,
+							margin: 5,
+							textAlign: 'center',
+							flex: 1
+						},
+						layout: {
+							type: 'vbox',
+							align: 'stretch'
+						}
+					}
+				]]>
+			</components>
+			<comment>Adding a custom block on the 2nd column</comment>
+		</record>
+
+		<record>
+			<win>man.clk.start</win>
+			<renderTo>#customCont2</renderTo>
+			<action>add</action>
+			<components><![CDATA[
+					{
+						xtype: 'container',
+						itemId: 'customLine',
+						items: [
+							{
+								xtype: 'label',
+								html: '<hr style="margin: 15px 8px 5px 8px"/>'
+							}
+						]
+					}
+				]]>
+			</components>
+			<comment>Adding a line to split standard and customized buttons</comment>
+		</record>	
+
+		<record>
+			<win>man.clk.start</win>
+			<renderTo>#customCont2</renderTo>
+			<action>add</action>
+			<components><![CDATA[
+					{
+						xtype: 'button',
+						listeners: {
+							click: function(button) {
+								BaseCtrl.reportShow(button,'sqi=eSuite_base_exec_sqr&REPORT=CLK_SGR_NON_SEC&D1126=1&F1126=99999999',true);
+							}
+						},
+						cls: '',
+						text: 'Multi totals (PDF)'
+					}
+				]]>
+			</components>
+			<comment>Operator Multi totals CLK_SGR_NON_SEC.sqr ALL Operators</comment>
+		</record>
+		
+		<record>
+			<win>man.clk.start</win>
+			<renderTo>#customCont2</renderTo>
+			<action>add</action>
+			<components><![CDATA[
+					{
+						xtype: 'button',
+						listeners: {
+							click: function(button) {
+								BaseCtrl.reportShow(button,'sqi=eSuite_base_exec_sqr&REPORT=CLK_O1R_NON_SEC_5CLK&D1126=1&F1126=99999999',true);
+							}
+						},
+						cls: '',
+						text: 'Multi 5 Operators (PDF)'
+					}
+				]]>
+			</components>
+			<comment>Operator Multi totals 5 oper CLK_O1R_NON_SEC_5CLK.sqr ALL operators</comment>
+		</record>
+		
+		<!-- ADDING A CONTAINER BEFORE ADDING BUTTONS IN THE CUSTOMER START MENU -->
+		<record>
+			<win>cust.clt.start</win>
+			<renderTo>#col2Cont</renderTo>
+			<action>add</action>
+			<components><![CDATA[
+					{
+						xtype: 'container',
+						itemId: 'customCont2',
+						defaults: {
+							minWidth: 150,
+							margin: 5,
+							textAlign: 'center',
+							flex: 1
+						},
+						layout: {
+							type: 'vbox',
+							align: 'stretch'
+						}
+					}
+				]]>
+			</components>
+			<comment>Adding a custom block on the 2nd column for Customer Start Menu</comment>
+		</record>
+		
+		<!-- ADDING AN EXAMPLE WITH A SQR WIZARD HAVING 2 POP-UPS -->
+		<record>
+			<win>cust.clt.start</win>
+			<renderTo>#customCont2</renderTo>
+			<action>add</action>
+			<components><![CDATA[
+					{
+						xtype: 'button',
+						listeners: {
+							click: function(button) {
+								BaseCtrl.reportShow(button,'sqi=eSuite_base_exec_sqr&REPORT=CLT_O1R_LIST',true);
+							}
+						},
+						cls: '',
+						text: 'Customer List (SQR)'
+					}
+				]]>
+			</components>
+			<comment>Customer List CLT_O1R_LIST.sqr</comment>
+		</record>
+		
+		<!-- ADDING AN EXAMPLE WITH A XSD WIZARD -->
+		<record>
+			<win>cust.clt.start</win>
+			<renderTo>#customCont2</renderTo>
+			<action>add</action>
+			<components><![CDATA[
+					{
+						xtype: 'button',
+						listeners: {
+							click: function(button) {							
+								ExecCtrl.entrySendUrl(button,'sqi=eSuite_CLT_O1R_LIST');
+							}
+						},
+						cls: '',
+						text: 'Cust. List By Name (XSD)'
+					}
+				]]>
+			</components>
+			<comment>Customer List CLT_O1R_LIST.sqr with an XSD wizard</comment>
+		</record>
+		
+		<!-- ADDING AN EXAMPLE WITH A XSD WIZARD TO CALL A SENCHA RESULT GRID -->
+		<record>
+			<win>cust.clt.start</win>
+			<renderTo>#customCont2</renderTo>
+			<action>add</action>
+			<components><![CDATA[
+					{
+						xtype: 'button',
+						listeners: {
+							click: function(button) {							
+								ExecCtrl.entrySendUrl(button,'sqi=eSuite_cust_clt_list_shopper_level',null,null,{smsViewId:'cust.clt.list.general.result'});
+							}
+						},
+						cls: '',
+						text: 'Filtered List (XSD + Grid)'
+					}
+				]]>
+			</components>
+			<comment>Customer List General filtered by Shopper Level from an XSD wizard</comment>
+		</record>
+		
+		<!-- IMPORTANT!!!! THE FOLLOWING EXAMPLE OVERRIDES THE WHOLE MENU OF ITEM START -->
+		<!-- TO REVIEW THE LAYOUT AND ADD SOME LABELS. -->
+		<!-- USING THIS WILL ALSO OVERRIDE ALL THE FUTURE ENHANCEMENTS AND FIXES COMING FROM FROM THE BASE FOR THIS MENU -->
+		<!-- THIS EXAMPLE WITH THE <action>replace</action> SHOULD ONLY BE USED BY EXPERIENCED USERS -->
+		<record>
+			<win>item.itm.start</win>
+			<renderTo>#col1Cont</renderTo>
+			<action>replace</action>
+			<components><![CDATA[
+				{
+					xtype: 'container',
+					cls: 'sms-host-startbtn-cont',
+					flex: 1,
+					itemId: 'col1Cont',
+					margin: '10 0 10 10',
+					layout: {
+						type: 'vbox',
+						align: 'stretch'
+					},
+					items: [
+						{
+							xtype: 'container',
+							itemId: 'ItemsCont',
+							defaults: {
+								margin: 5,
+								textAlign: 'center',
+								flex: 1
+							},
+							layout: {
+								type: 'hbox',
+								align: 'stretch'
+							},
+							items: [
+								{
+									xtype: 'button',
+									smsExec: 'jsWin=item.itm.list.general.wizard',
+									itemId: 'ItemsBtn',
+									text: 'Items'
+								},
+								{
+									xtype: 'button',
+									smsExec: 'jsFct=ItemCtrl.resultAdd',
+									itemId: 'NewBtn',
+									text: 'New'
+								}
+							]
+						},
+						{
+							xtype: 'container',
+							items: [
+								{
+									xtype: 'label',
+									html: '<hr style="margin: 15px 8px 5px 8px"/>'
+								}
+							]
+						},
+						{
+							xtype: 'container',
+							itemId: 'PriceCont',
+							defaults: {
+								margin: 5,
+								textAlign: 'center',
+								flex: 1
+							},
+							layout: {
+								type: 'hbox',
+								align: 'stretch'
+							},
+							items: [
+								{
+									xtype: 'button',
+									smsExec: 'jsWin=item.itm.list.price.wizard',
+									flex: 1,
+									itemId: 'PricesBtn',
+									text: 'Prices'
+								},
+								{
+									xtype: 'button',
+									smsExec: 'jsWin=item.itm.list.pricestore.wizard',
+									flex: 1,
+									itemId: 'PriceStoreBtn',
+									text: 'Price store'
+								}
+							]
+						},
+						{
+							xtype: 'container',
+							itemId: 'CostCont',
+							defaults: {
+								minWidth: 150,
+								margin: 5,
+								textAlign: 'center',
+								flex: 1
+							},
+							layout: {
+								type: 'hbox',
+								align: 'stretch'
+							},
+							items: [
+								{
+									xtype: 'button',
+									smsExec: 'jsWin=item.itm.list.cost.wizard',
+									itemId: 'CostsBtn',
+									text: 'Costs'
+								}
+							]
+						},
+						{
+							xtype: 'container',
+							itemId: 'POSCont',
+							defaults: {
+								minWidth: 150,
+								margin: 5,
+								textAlign: 'center',
+								flex: 1
+							},
+							layout: {
+								type: 'hbox',
+								align: 'stretch'
+							},
+							items: [
+								{
+									xtype: 'button',
+									smsExec: 'jsWin=item.itm.list.pos.wizard',
+									itemId: 'PosInfoBtn',
+									text: 'POS information'
+								}
+							]
+						},
+						{
+							xtype: 'container',
+							items: [
+								{
+									xtype: 'label',
+									html: '<hr style="margin: 15px 8px 5px 8px"/>'
+								}
+							]
+						},
+						{
+							xtype: 'container',
+							itemId: 'CpnCont',
+							defaults: {
+								margin: 5,
+								textAlign: 'center',
+								flex: 1
+							},
+							layout: {
+								type: 'hbox',
+								align: 'stretch'
+							},
+							items: [
+								{
+									xtype: 'button',
+									smsExec: 'jsWin=item.itm.list.cpn.wizard',
+									itemId: 'CouponItemsBtn',
+									text: 'Coupons'
+								},
+								{
+									xtype: 'button',
+									flex: 0.7,
+									itemId: 'CouponAllBtn',
+									text: 'All',
+									listeners: {
+										click: 'onCouponAllBtnClick'
+									}
+								},
+								{
+									xtype: 'button',
+									flex: 0.7,
+									itemId: 'NewCouponBtn',
+									text: 'New',
+									listeners: {
+										click: 'onBtnNewCouponClick'
+									}
+								}
+							]
+						},
+						{
+							xtype: 'container',
+							itemId: 'CPNMatch',
+							defaults: {
+								minWidth: 150,
+								margin: 5,
+								textAlign: 'center',
+								flex: 1
+							},
+							layout: {
+								type: 'hbox',
+								align: 'stretch'
+							},
+							items: [
+								{
+									xtype: 'button',
+									smsExec: 'jsWin=item.itm.piv.cpnmatch.wizard',
+									flex: 1,
+									itemId: 'couponMatchBtn',
+									text: 'Coupon Matching Report'
+								}
+							]
+						},
+						{
+							xtype: 'container',
+							items: [
+								{
+									xtype: 'label',
+									html: '<hr style="margin: 15px 8px 5px 8px"/>'
+								}
+							]
+						},
+						{
+							xtype: 'container',
+							itemId: 'PCLCont',
+							defaults: {
+								minWidth: 150,
+								margin: 5,
+								textAlign: 'center',
+								flex: 1
+							},
+							layout: {
+								type: 'hbox',
+								align: 'stretch'
+							},
+							items: [
+								{
+									xtype: 'button',
+									smsExec: 'jsWin=item.itm.list.change.price.wizard',
+									itemId: 'PriceChangeLogBtn',
+									text: 'Price changes'
+								}
+							]
+						},
+						{
+							xtype: 'container',
+							itemId: 'GCLCont',
+							defaults: {
+								minWidth: 150,
+								margin: 5,
+								textAlign: 'center',
+								flex: 1
+							},
+							layout: {
+								type: 'hbox',
+								align: 'stretch'
+							},
+							items: [
+								{
+									xtype: 'button',
+									smsExec: 'jsWin=item.itm.list.change.general.wizard',
+									itemId: 'GeneralChangeLogBtn',
+									text: 'General changes'
+								}
+							]
+						},
+						{
+							xtype: 'container',
+							defaults: {
+								margin: '0px 0px 0px 0px',
+								textAlign: 'center',
+								flex: 1
+							},
+							items: [
+								{
+									xtype: 'label',
+									html: '<p style="margin-top:8px;margin-bottom:0px;text-align:center; ">AUDIT</p>'
+								},
+								{
+									xtype: 'label',
+									html: '<hr style="margin: 0px 8px 5px 8px"/>'
+								}
+							]
+						},
+						{
+							xtype: 'container',
+							itemId: 'ValidityCont',
+							defaults: {
+								minWidth: 150,
+								margin: 5,
+								textAlign: 'center',
+								flex: 1
+							},
+							layout: {
+								type: 'hbox',
+								align: 'stretch'
+							},
+							items: [
+								{
+									xtype: 'button',
+									smsExec: 'jsWin=item.itm.validity.check.wizard',
+									itemId: 'ValidityChkBtn',
+									text: 'Validity check'
+								}
+							]
+						},
+						{
+							xtype: 'container',
+							itemId: 'customCont',
+							defaults: {
+								minWidth: 150,
+								margin: 5,
+								textAlign: 'left'
+							},
+							layout: {
+								type: 'hbox',
+								align: 'stretch'
+							}
+						},
+						{
+							xtype: 'container',
+							itemId: 'extraCont',
+							defaults: {
+								minWidth: 150,
+								margin: 5,
+								textAlign: 'center',
+								flex: 1
+							},
+							layout: {
+								type: 'vbox',
+								align: 'stretch'
+							}
+						},
+						{
+							xtype: 'container',
+							itemId: 'AuditCont',
+							defaults: {
+								minWidth: 150,
+								margin: 5,
+								textAlign: 'center',
+								flex: 1
+							},
+							layout: {
+								type: 'hbox',
+								align: 'stretch'
+							},
+							items: [
+								{
+									xtype: 'button',
+									smsExec: 'jsWin=item.itm.list.audit.history.wizard',
+									itemId: 'AuditBtn',
+									text: 'Audit changes'
+								}
+							]
+						}
+					]
+				}			
+				]]>
+			</components>
+			<comment>Override the item start menu col1</comment>
+		</record>		
+		
+		<record>
+			<win>item.itm.start</win>
+			<renderTo>#col2Cont</renderTo>
+			<action>replace</action>
+			<components><![CDATA[
+				{
+					xtype: 'container',
+					cls: 'sms-host-startbtn-cont',
+					flex: 1,
+					itemId: 'col2Cont',
+					margin: '10 0 10 5',
+					layout: {
+						type: 'vbox',
+						align: 'stretch'
+					},
+					items: [
+						{
+							xtype: 'container',
+							defaults: {
+								margin: '0px 0px 0px 0px',
+								textAlign: 'center',
+								flex: 1
+							},
+							items: [
+								{
+									xtype: 'label',
+									html: '<p style="margin-top:8px;margin-bottom:0px;text-align:center; ">REPORTS</p>'
+								},
+								{
+									xtype: 'label',
+									html: '<hr style="margin: 0px 8px 5px 8px"/>'
+								}
+							]
+						},
+						{
+							xtype: 'container',
+							itemId: 'SngTtlCont',
+							defaults: {
+								minWidth: 150,
+								margin: 5,
+								textAlign: 'center',
+								flex: 1
+							},
+							layout: {
+								type: 'hbox',
+								align: 'stretch'
+							},
+							items: [
+								{
+									xtype: 'button',
+									smsExec: 'jsWin=item.itm.rpt.tlzsum.wizard',
+									itemId: 'SingleTotalBtn',
+									text: 'Single total'
+								}
+							]
+						},
+						{
+							xtype: 'container',
+							itemId: 'MultiTtlCont',
+							defaults: {
+								minWidth: 150,
+								margin: 5,
+								textAlign: 'center',
+								flex: 1
+							},
+							layout: {
+								type: 'hbox',
+								align: 'stretch'
+							},
+							items: [
+								{
+									xtype: 'button',
+									smsExec: 'jsWin=item.itm.rpt.tlzall.wizard',
+									itemId: 'MultiTotalsBtn',
+									text: 'Multi totals'
+								}
+							]
+						},
+						{
+							xtype: 'container',
+							itemId: 'CmpTtlCont',
+							defaults: {
+								minWidth: 150,
+								margin: 5,
+								textAlign: 'center',
+								flex: 1
+							},
+							layout: {
+								type: 'hbox',
+								align: 'stretch'
+							},
+							items: [
+								{
+									xtype: 'button',
+									smsExec: 'jsWin=item.itm.rpt.tlzcmp.wizard',
+									itemId: 'CmpTotalsBtn',
+									text: 'Compare totals'
+								}
+							]
+						},
+						{
+							xtype: 'container',
+							itemId: 'ItmTrsDetailsCont',
+							defaults: {
+								minWidth: 150,
+								margin: 5,
+								textAlign: 'center',
+								flex: 1
+							},
+							layout: {
+								type: 'hbox',
+								align: 'stretch'
+							},
+							items: [
+								{
+									xtype: 'button',
+									smsExec: 'jsWin=item.itm.rpt.det.wizard',
+									itemId: 'ItmTrsDetailsBtn',
+									text: 'Transaction details'
+								}
+							]
+						},
+						{
+							xtype: 'container',
+							itemId: 'OrphanCont',
+							defaults: {
+								minWidth: 150,
+								margin: 5,
+								textAlign: 'center',
+								flex: 1
+							},
+							layout: {
+								type: 'hbox',
+								align: 'stretch'
+							},
+							items: [
+								{
+									xtype: 'button',
+									smsExec: 'jsWin=item.itm.rpt.orphan.wizard',
+									itemId: 'OrphanBtn',
+									text: 'Orphans'
+								}
+							]
+						},
+						{
+							xtype: 'container',
+							items: [
+								{
+									xtype: 'label',
+									html: '<hr style="margin: 15px 8px 5px 8px"/>'
+								}
+							]
+						},
+						{
+							xtype: 'container',
+							itemId: 'COGSCont',
+							defaults: {
+								minWidth: 150,
+								margin: 5,
+								textAlign: 'center',
+								flex: 1
+							},
+							layout: {
+								type: 'hbox',
+								align: 'stretch'
+							},
+							items: [
+								{
+									xtype: 'button',
+									smsExec: 'jsWin=item.itm.piv.cogsum.wizard',
+									itemId: 'CostOfGoodsBtn',
+									text: 'Cost of goods'
+								}
+							]
+						},
+						{
+							xtype: 'container',
+							itemId: 'MOVCont',
+							defaults: {
+								minWidth: 150,
+								margin: 5,
+								textAlign: 'center',
+								flex: 1
+							},
+							layout: {
+								type: 'hbox',
+								align: 'stretch'
+							},
+							items: [
+								{
+									xtype: 'button',
+									smsExec: 'jsWin=item.itm.host.movsto.wizard',
+									itemId: 'MovByStoreBtn',
+									text: 'Movement by store'
+								}
+							]
+						},
+						{
+							xtype: 'container',
+							itemId: 'InvMovCont',
+							defaults: {
+								minWidth: 150,
+								margin: 5,
+								textAlign: 'center',
+								flex: 1
+							},
+							layout: {
+								type: 'hbox',
+								align: 'stretch'
+							},
+							items: [
+								{
+									xtype: 'button',
+									smsExec: 'jsWin=item.itm.piv.inv.mov.wizard',
+									itemId: 'ItemItmMovBtn',
+									text: 'Inventory movement'
+								}
+							]
+						},
+						{
+							xtype: 'container',
+							itemId: 'InvValCont',
+							defaults: {
+								minWidth: 150,
+								margin: 5,
+								textAlign: 'center',
+								flex: 1
+							},
+							layout: {
+								type: 'hbox',
+								align: 'stretch'
+							},
+							items: [
+								{
+									xtype: 'button',
+									smsExec: 'jsWin=item.itm.piv.inv.value.wizard',
+									itemId: 'ItemItmValueBtn',
+									text: 'Inventory value'
+								}
+							]
+						},
+						{
+							xtype: 'container'
+						},
+						{
+							xtype: 'container',
+							itemId: 'InvHistoryCont',
+							defaults: {
+								minWidth: 150,
+								margin: 5,
+								textAlign: 'center',
+								flex: 1
+							},
+							layout: {
+								type: 'hbox',
+								align: 'stretch'
+							},
+							items: [
+								{
+									xtype: 'button',
+									smsExec: 'jsWin=item.itm.invent.history.wizard',
+									itemId: 'InvHistoryBtn',
+									text: 'Inventory history'
+								}
+							]
+						},
+						{
+							xtype: 'container',
+							itemId: 'marginMatrix',
+							defaults: {
+								minWidth: 150,
+								margin: 5,
+								textAlign: 'center',
+								flex: 1
+							},
+							layout: {
+								type: 'hbox',
+								align: 'stretch'
+							},
+							items: [
+								{
+									xtype: 'button',
+									smsExec: 'jsWin=item.itm.piv.marginmatrix.wizard',
+									itemId: 'MarginMatrixBtn',
+									text: 'Margin matrix'
+								}
+							]
+						},
+						{
+							xtype: 'container',
+							itemId: 'ForecastCont',
+							defaults: {
+								minWidth: 150,
+								margin: 5,
+								textAlign: 'center',
+								flex: 1
+							},
+							layout: {
+								type: 'hbox',
+								align: 'stretch'
+							},
+							items: [
+								{
+									xtype: 'button',
+									smsExec: 'jsWin=item.itm.forecast.start',
+									smsDesktop: 'item.desktop',
+									hidden: true,
+									itemId: 'ForecastBtn',
+									text: 'Forecast'
+								}
+							]
+						}
+					]
+				}
+				]]>
+			</components>
+			<comment>Override the item start menu col2</comment>
+		</record>
+		
+	</data>
+</hook>

@@ -1,0 +1,17 @@
+{
+    "type": "cssresource",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "css",
+        "url": "../estore/build/production/SMS/resources/SMS-all.css"
+    },
+    "configAlternates": {
+        "designer|userClassName": "string",
+        "url": "uri"
+    },
+    "designerId": "d86454ab-f385-4940-a14d-6f172ffaa780"
+}

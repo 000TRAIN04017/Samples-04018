@@ -1,0 +1,139 @@
+$site-color: $base-color !default;
+
+    // REMOVING WHITE BACKGROUND 
+    .sms-desktop {
+        background: none;
+    }
+    .x-grid-item {
+        background: none;
+    }
+
+    .sms-catalog-desktop-section {
+        background-color: none;
+    }
+
+    .sms-desktop-section-header {
+        background-color:rgba(246, 240, 240, 0.8)
+    }
+    .x-panel-body-default {
+        background:none;
+    }
+
+    .sms-startdesktop-section-carousel {
+        border:none;
+    }
+
+    .sms-catalog-dpt-itm {
+        width: 170px;
+        height: 140px;
+        display: block;
+        background-color: $site-color;
+        border-radius: 5px;
+        margin: 5px;
+        padding: 0;
+        float: left;
+    }
+
+    .sms-catalog-dpt-itm-image {
+        img {
+            width: 164px;
+            height: 107px;
+            margin: 3px 0px 0px 3px;
+            border-radius: 5px;
+        }
+        width: 170px;
+        height: 107px;
+        
+        
+    }
+
+    .sms-catalog-dpt-itm-title {
+        width: 170px;
+        height: 33px;
+        font-size: 16px;
+        color:#ffffff;
+        text-transform: uppercase;
+        text-align: center;
+        display: table-cell;
+        vertical-align: middle;
+    }
+
+    ///// CATEGORY LIST TEMPLATE //////////
+    .sms-catalog-cat-itm {
+        width: 168px;
+        height: 103px;
+        display: block;
+        background-color: $site-color;
+        border-radius: 5px;
+        margin: 5px;
+        padding: 0;
+        float: left;
+    }
+
+    .sms-catalog-cat-itm-image {
+        img {
+            width: 162px;
+            height: 61px;
+            margin: 2px 0px 0px 3px;
+            border-radius: 5px;
+        }
+        width: 168px;
+        height: 61px;
+        
+    }
+
+    .sms-catalog-cat-itm-title {
+        width: 170px;
+        height: 40px;
+        padding-top: 5px;
+        font-size: 16px;
+        color:#ffffff;
+        text-transform: uppercase;
+        text-align: center;
+        display: table-cell;
+        vertical-align: middle;
+    }
+
+    .sms-positemdetail .sms-positemdetail-main-image {
+        width: 248px;
+        height: 248px;
+    }
+
+    .sms-kiosk-addtocart-btn{
+        width: 183px;
+        height: 34px;
+        background-color: $site-color;
+        border-radius: 5px;
+        font-size: 16pt;
+        text-transform: uppercase;
+        margin:10px 15px 0px 15px;
+
+        .x-btn-icon-el-default-small {
+            height: 20px;
+        }
+    }
+
+    .sms-kiosk-addtolist-btn{
+        width: 183px;
+        height: 34px;
+        background-color: white;
+        border:1px solid $site-color;
+        border-radius: 5px;
+        font-size: 16pt;
+        color:$site-color;
+        text-transform: uppercase;
+        padding-left:30px;
+        margin:10px 15px 0px 15px;
+            
+            .x-btn-icon-el-default-small {
+                height: 20px;
+                color:$site-color;
+            }
+        
+            .x-btn-inner-default-small{
+                padding: 0 15px;
+                color:$site-color;
+            }
+    }
+
+    

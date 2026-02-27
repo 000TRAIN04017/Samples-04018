@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<hook>
+	<type>hookExec</type>
+	<alias>DesktopLayout</alias>
+	<data>
+	<desktopLayout>
+		<record>
+			<profile>USER7</profile>
+			<key>Remote/eSuite_desktop_layout_items</key>
+			<param>item.itm.start</param>
+			<value>o%3Awidth%3Dn%253A500%5Eheight%3Dn%253A700%5EposX%3Dn%253A200%5EposY%3Dn%253A70%5EsmsHost%3Ds%253Anewhost</value>
+		</record>
+		<record>
+			<profile>USER7</profile>
+			<key>Remote/eSuite_desktop_layout_items</key>
+			<param>item.itm.list.general.wizard</param>
+			<value>o%3Awidth%3Dn%253A425%5Eheight%3Dn%253A635%5EposX%3Dn%253A200%5EposY%3Dn%253A70%5EsearchFiltersName%3Ds%253AFDefault</value>
+		</record>
+		<record>
+			<profile>USER7</profile>
+			<key>Remote/eSuite_desktop_layout_items</key>
+			<param>orderList</param>
+			<value>a%3As%253Aitem.itm.start%5Es%253Aitem.itm.list.general.wizard</value>
+		</record>
+	</desktopLayout>
+	<cursor>
+		<record>
+			<profile>USER7</profile>
+			<key>Remote/eSuite_desktop_layout_items</key>
+			<win>item.itm.list.general.wizard</win>
+			<field>#CODE</field>
+		</record>
+		<record>
+			<profile>USER7</profile>
+			<key>Remote/eSuite_desktop_layout_items</key>
+			<win>item.itm.list.general.wizard</win>
+			<field>#DESCRIPTION</field>
+		</record>
+		<record>
+			<profile>USER7</profile>
+			<key>Remote/eSuite_desktop_layout_items</key>
+			<win>item.itm.list.general.wizard</win>
+			<field>#F04</field>
+		</record>
+	</cursor>
+	</data>
+</hook>
